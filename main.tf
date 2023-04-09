@@ -1,12 +1,12 @@
 resource "aws_db_instance" "default" {
   for_each             = var.rds
   allocated_storage    = each.value.allocated_storage
-  db_name              = ${var.env}
-  engine               = "mysql"
-  engine_version       = "5.7"
-  instance_class       = "db.t3.micro"
+  db_name              = "${var.env}-${each.key}-roboshop-rds"
+  engine               = each.value.engine
+  engine_version       = each.value.engine_version
+  instance_class       = each.value.instance_calss
   username             = "foo"
   password             = "foobarbaz"
-  parameter_group_name = "default.mysql5.7"
+  parameter_group_name = each.value.parameter_group_name
   skip_final_snapshot  = true
 }

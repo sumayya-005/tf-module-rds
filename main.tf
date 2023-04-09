@@ -1,7 +1,7 @@
 resource "aws_db_instance" "default" {
-  for_each              = var.rds
-  allocated_storage    = 10
-  db_name              = "mydb"
+  for_each             = var.rds
+  allocated_storage    = each.value.allocated_storage
+  db_name              = ${var.env}
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"

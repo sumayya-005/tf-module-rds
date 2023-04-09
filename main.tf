@@ -1,4 +1,5 @@
 resource "aws_db_instance" "default" {
+  for_each              = var.rds
   allocated_storage    = 10
   db_name              = "mydb"
   engine               = "mysql"

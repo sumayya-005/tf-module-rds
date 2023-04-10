@@ -9,4 +9,4 @@ resource "aws_db_instance" "default" {
   password             = "foobarbaz"
   parameter_group_name = each.value.parameter_group_name
   skip_final_snapshot  = true
-}
+} 

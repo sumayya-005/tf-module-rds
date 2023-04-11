@@ -2,7 +2,7 @@
 
 resource "aws_rds_cluster" "default" {
   for_each            = var.rds
-  cluster_identifier  = "${var.env}-${each.key}-roboshop-rds"
+  cluster_identifier  = "${var.env}-${each.}-roboshop-rds"
   engine              = each.value.engine
   engine_version      = each.value.engine_version
   database_name       = "mydb"

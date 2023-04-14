@@ -1,5 +1,3 @@
-
-
 resource "aws_rds_cluster" "default" {
   for_each            = var.rds
   cluster_identifier  = "${var.env}-${var.name}-roboshop-rds"

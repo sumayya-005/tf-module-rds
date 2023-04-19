@@ -1,4 +1,5 @@
 variable "env" {}
+variable "rds" {}
 variable "subnets" {}
 variable "name" {}
 variable "allocated_storage" {}

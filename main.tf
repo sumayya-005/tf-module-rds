@@ -1,4 +1,6 @@
 resource "aws_rds_cluster" "default" {
+  depends_on          = [ aws_rds_cluster_parameter_group.default,aws_db_subnet_group.default]
+  for_each            = var.rds
   cluster_identifier  = "${var.env}-${var.name}-roboshop-rds"
   engine              = var.engine
   engine_version      = var.engine_version
@@ -11,6 +13,7 @@ resource "aws_rds_cluster" "default" {
 }
 
 resource "aws_rds_cluster_parameter_group" "default" {
+  for_each    = var.rds
   name        = "${var.env}-${var.name}-roboshop-rds"
   family      = "aurora5.7"
   description = "RDS default cluster parameter group"
@@ -18,6 +21,7 @@ resource "aws_rds_cluster_parameter_group" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
+  for_each   = var.rds
   name       = "${var.env}-${var.name}-roboshop-rds"
   subnet_ids = var.subnets
 

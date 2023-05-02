@@ -19,7 +19,6 @@ resource "aws_rds_cluster_parameter_group" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
-
   name       = "${var.env}-${var.name}-roboshop-rds"
   subnet_ids = var.subnets
 

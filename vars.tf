@@ -7,3 +7,6 @@ variable "engine_version" {}
 variable "instance_class" {}
 #variable "parameter_group_name" {}
 variable "skip_final_snapshot" {}
+variable "vpc_id" {}
+variable "BASTION_NODE" {}
+variable "vpc_cidr" {}
